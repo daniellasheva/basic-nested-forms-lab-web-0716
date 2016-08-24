@@ -1,3 +1,19 @@
 <%= form_for @recipe do |f| %>
-  Title: <%= f.text_field :title %>
+  <h1>Recipe Title:</h1>
+  <%= f.text_field :title %>
+
+<h4>Ingredients List: </h4>
+<%= f.fields_for :ingredients do |ingredient_form| %>
+<!--looks for ATTRIBUTES method  -->
+<!-- Setter method builds loop according to # of attributes i think -->
+<%= ingredient_form.label :name %>
+<%= ingredient_form.text_field :name %>
+<%= ingredient_form.label :quantity %>
+<%= ingredient_form.text_field :quantity %>
+</br>
+
+<% end %>
+
+<%=f.submit %>
+
 <% end %>
